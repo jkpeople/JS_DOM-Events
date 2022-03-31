@@ -1,39 +1,69 @@
-console.log("Script attached");
-/*----------- Exercise #1: SELECTING/MANIPULATING ELEMENTS -----------*/
+// DOM Exercise
 
-// Select Node #1 and change the text to: "I used the getElementById("node1") method to access this"
+let node1 = document.getElementById("node1");
+    node1.textContent = "I used the getElementById(`node1`) method to access this";
 
-// Select Node #2 and change the text to: "I used the getElementByClassName("node2") method to access this" */
+let node2 = document.getElementsByClassName("node2");
+    HTMLCollection 
 
-// Select ALL the h3 tags and change the text to: "I used the getElementByTagName("h3") method to access all of these" */
+node2s[0].textContent = 
+    "I used the getElementByClassName(`node2`) method to access this";
 
-/*----------- Exercise #2: CREATING/APPENDING/INSERTING ELEMENTS/OBJECTS -----------*/
+let h3s = document.getElementsByTagName("h3"); // returns an HTMLCollection 
 
-// TODO: Create a paragraph element using this document.createElement() and put this text inside "This node was created using the createElement() method"
+for (let ele = h3s) {
+    ele.textContent = 
+        "I used the getElementByTagName(`h3`) method to access this";
+}
 
-// TODO: Append the created node to the parent node using the element.appendChild() method
+// Exercise 2
 
-// TODO: Create a <a> element using this document.createElement() and put this text inside "I am a <a> tag"
+let parent = document.getElementById("parent")
 
-// BONUS: Add a link href to the <a>
+let p = document.createElement("p");
+let a = document.createElement("a");
 
-// TODO: Insert the created <a> in the parent but before the <p> you just created using the element.insertBefore() method
+p.textContent = "I am a <p> tag";
 
-/*----------- Exercise #3: REMOVING/REPLACING ELEMENTS/OBJECTS -----------*/
+a.textContent = "Google Search";
+a.href = "https://google.com";
+a.target = "_blank_";
 
-// TODO: Replace the "Child Node" with a new <p> element that reads "New Child Node"
+parent.appendChild(p);
 
-// TODO: Remove the "New Child Node"
+setTimeout(() => {
+    parent.insertBefore(a, p);
+}, 3000);
 
-/*----------- Exercise #4: ANIMATIONS ----------- */
-// TODO: Write your JavaScript here to make the red box go from left to right
-// let interval = setInterval(move, 10);
+// Exercise 3
 
-// BONUS - Make the red box go all the way around the perimeter of the green box
+let parent3 = document.getElementById("exercise-container3");
+let N1 = document.getElementById("N1"); 
 
-/*----------- Exercise #5: DOM EVENTS --------------*/
+// Replace
+let input = document.createElement("input");
+input.value = "Replaced N1 child";
 
-// TODO: write a function called "show" which creates a new div with an alerting message to the user with this message
-// -> "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user"
-// This div should be a 'modal' that covers the main content on the screen
-// BONUS: The modal popup should be able to be closed. Refactor for this functionality
+parent3.replaceChild(input, N1); 
+
+input.focus();
+
+// Remove
+setTimeout(() => {
+    parent3.removeChild(input);
+}, 5000);
+
+// Exercise 4
+
+let container = document.querySelector("#container")
+let box = document.querySelector("#box")
+
+let left = 0;
+let top = 0;
+
+setInterval(() => {
+    box.style.left = `${++x}px`;
+    if (x >= container.clientWidth - box.clientWidth) {
+        clearInterval(interval);
+    }
+}, 10);
