@@ -72,6 +72,26 @@ body {
   position: absolute;
 }
 
+@keyframes cycle {
+  25% {
+    left: ;
+    top: ;
+  }
+  50% {
+    left: ;
+    top: ;
+  }
+  75% {
+    left: ;
+    top: ;
+  }
+  100% {
+    left: ;
+    top: ;
+  }
+}
+
+
 #btn {
   padding: 0.5rem 0.75rem;
   border: none;

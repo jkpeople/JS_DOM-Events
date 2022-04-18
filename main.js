@@ -58,12 +58,27 @@ setTimeout(() => {
 let container = document.querySelector("#container")
 let box = document.querySelector("#box")
 
-let left = 0;
-let top = 0;
+let x = 0;
+let y = 0;
 
-setInterval(() => {
-    box.style.left = `${++x}px`;
-    if (x >= container.clientWidth - box.clientWidth) {
-        clearInterval(interval);
+let interval = setInterval(() => {
+    if (dir == "right") {
+        moveX(1);
+    } else if (dir == "down") {
+        moveY(1);
+    } else if (dir == "left") {
+        moveX(-1);
+    } else {
+        moveY(-1);
     }
 }, 10);
+
+function moveX(unit) {
+    x += unit;
+    box.style.left = `${x}px`;
+}
+
+function moveY(unit) {
+    y += unit;
+    box.style.top = `${y}px`;
+}
